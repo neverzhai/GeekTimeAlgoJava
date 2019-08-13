@@ -2,22 +2,22 @@ package geektime.algo.sorts;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-class BubbleSortTest {
+import static org.junit.jupiter.api.Assertions.*;
 
-    private BubbleSort bubbleSort;
+class InsertionSortTest {
+
+    private InsertionSort insertionSort;
 
     @BeforeEach
     void setUp() {
-        bubbleSort = new BubbleSort();
+        insertionSort = new InsertionSort();
     }
 
     @Test
-    void bubbleSort() {
+    void insertionSort() {
         int[] numbers = new int[] {4,6,2,8,0};
-        int[] sortedNumbers = bubbleSort.bubbleSort(numbers);
-
+        int[] sortedNumbers = insertionSort.insertionSort(numbers);
         assertArrayEquals(new int[] {0,2,4,6,8}, sortedNumbers);
     }
 }
