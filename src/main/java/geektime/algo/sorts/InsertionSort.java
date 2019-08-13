@@ -6,7 +6,7 @@ public class InsertionSort {
         for (int i = 1; i < numbers.length; i++) {
             int value = numbers[i];
             int j = i -1;
-            for(j = i - 1 ; j >= 0; j--){
+            for(; j >= 0; j--){
                 if(numbers[j] > value) {
                     numbers[j+1] = numbers[j];
                 }else {
