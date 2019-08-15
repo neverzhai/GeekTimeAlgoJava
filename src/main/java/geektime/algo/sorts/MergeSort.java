@@ -1,6 +1,7 @@
 package geektime.algo.sorts;
 
 import javax.print.attribute.standard.MediaSize;
+import java.sql.Statement;
 
 public class MergeSort {
 
@@ -14,10 +15,26 @@ public class MergeSort {
             return  numbers;
         }
         mergeSort(numbers, 0, numbers.length-1);
-//        for(int j = 0; j < numbers.length; j++){
-//            System.out.println(numbers[j]);
-//        }
         return numbers;
+    }
+
+    public int[] mergeSortWithTempArray(int[] numbers) {
+        if(numbers.length <= 1) {
+            return  numbers;
+        }
+
+        mergeSortWithTempArray(numbers, 0 , numbers.length -1);
+        return numbers;
+    }
+
+    private void mergeSortWithTempArray(int[] numbers, int start, int end) {
+        if(start >= end){
+            return;
+        }
+        int middle = start + (end -start)/2;
+        mergeSortWithTempArray(numbers, start, middle);
+        mergeSortWithTempArray(numbers, middle + 1, end);
+        mergeByTempArray(numbers, start, middle, end);
     }
 
     private void mergeSort(int[] nums, int start, int end) {
@@ -68,6 +85,42 @@ public class MergeSort {
         for(int i = 0; i <= end - start; i++){
             nums[start + i] = temp[i];
         }
+    }
+
+    public void mergeByTempArray(int[] nums, int start, int middle, int end){
+        int firstTempLength = middle - start + 1;
+        int secondTempLength = end - middle;
+
+        int[] firstTempArray = new int[firstTempLength];
+        int[] secondTempArray = new int[secondTempLength];
+
+        for(int i = 0; i < firstTempLength; i++){
+            firstTempArray[i] = nums[start + i];
+        }
+        for(int j = 0; j < secondTempLength; j++){
+            secondTempArray[j] = nums[middle+1+j];
+        }
+        int leftIndex = 0;
+        int rightIndex = 0;
+        int tempIndex = start;
+
+        while(leftIndex < firstTempLength && rightIndex < secondTempLength){
+            if(firstTempArray[leftIndex] <= secondTempArray[rightIndex]){
+                nums[tempIndex++] = firstTempArray[leftIndex++];
+            }else {
+                nums[tempIndex++] = secondTempArray[rightIndex++];
+            }
+        }
+
+        while (leftIndex < firstTempLength){
+            nums[tempIndex++] = firstTempArray[leftIndex++];
+        }
+
+
+        while (rightIndex < secondTempLength){
+            nums[tempIndex++] = secondTempArray[rightIndex++];
+        }
+
     }
 
     public void printArray(int[] nums){
