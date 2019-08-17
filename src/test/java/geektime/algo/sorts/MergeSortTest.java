@@ -39,4 +39,11 @@ class MergeSortTest {
     }
 
 
+    @Test
+    void mergeSortWithMergeBySentry() {
+        int[] numbers = new int[]{1, 5,6, 2, 3, 4, 7, 10, 24};
+        int[] sortedNumbers = mergeSort.mergeSortBySentry(numbers);
+
+        assertArrayEquals(new int[] {1, 2,3,4,5,6,7,10, 24}, sortedNumbers);
+    }
 }

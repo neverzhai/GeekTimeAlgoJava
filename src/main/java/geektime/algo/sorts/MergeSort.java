@@ -1,8 +1,5 @@
 package geektime.algo.sorts;
 
-import javax.print.attribute.standard.MediaSize;
-import java.sql.Statement;
-
 public class MergeSort {
 
     /*
@@ -10,31 +7,13 @@ public class MergeSort {
     重要的是哪个merge函数。
      */
 
+    // method 1
     public int[] mergeSort(int[] numbers) {
         if(numbers.length <= 1) {
             return  numbers;
         }
         mergeSort(numbers, 0, numbers.length-1);
         return numbers;
-    }
-
-    public int[] mergeSortWithTempArray(int[] numbers) {
-        if(numbers.length <= 1) {
-            return  numbers;
-        }
-
-        mergeSortWithTempArray(numbers, 0 , numbers.length -1);
-        return numbers;
-    }
-
-    private void mergeSortWithTempArray(int[] numbers, int start, int end) {
-        if(start >= end){
-            return;
-        }
-        int middle = start + (end -start)/2;
-        mergeSortWithTempArray(numbers, start, middle);
-        mergeSortWithTempArray(numbers, middle + 1, end);
-        mergeByTempArray(numbers, start, middle, end);
     }
 
     private void mergeSort(int[] nums, int start, int end) {
@@ -87,6 +66,26 @@ public class MergeSort {
         }
     }
 
+    //method 2
+    public int[] mergeSortWithTempArray(int[] numbers) {
+        if(numbers.length <= 1) {
+            return  numbers;
+        }
+
+        mergeSortWithTempArray(numbers, 0 , numbers.length -1);
+        return numbers;
+    }
+
+    private void mergeSortWithTempArray(int[] numbers, int start, int end) {
+        if(start >= end){
+            return;
+        }
+        int middle = start + (end -start)/2;
+        mergeSortWithTempArray(numbers, start, middle);
+        mergeSortWithTempArray(numbers, middle + 1, end);
+        mergeByTempArray(numbers, start, middle, end);
+    }
+
     public void mergeByTempArray(int[] nums, int start, int middle, int end){
         int firstTempLength = middle - start + 1;
         int secondTempLength = end - middle;
@@ -127,6 +126,54 @@ public class MergeSort {
         for(int i =0 ; i< nums.length; i++){
             System.out.println(nums[i]);
         }
+    }
+
+    // method 3
+    public int[] mergeSortBySentry(int[] numbers) {
+        if(numbers.length <= 1){
+            return numbers;
+        }
+        mergeSortBySentry(numbers, 0, numbers.length -1);
+        return numbers;
+    }
+
+    private void mergeSortBySentry(int[] numbers, int start, int end) {
+        if(start >= end)
+            return;
+
+        int middle = start + (end - start)/2;
+        mergeSortBySentry(numbers, start, middle);
+        mergeSortBySentry(numbers, middle + 1, end);
+        mergeBySentry(numbers, start, middle, end);
+    }
+
+    private void mergeBySentry(int[] numbers, int start, int middle, int end) {
+       int leftArrayLength = middle - start + 2;
+       int rightArrayLength = end - middle + 1;
+
+       int[] leftTempArray = new int[leftArrayLength];
+       int[] rightTempArray = new int[rightArrayLength];
+
+       for(int i = 0; i < leftArrayLength - 1; i++){
+           leftTempArray[i] = numbers[start + i];
+       }
+       leftTempArray[leftArrayLength - 1] = Integer.MAX_VALUE;
+
+       for(int j = 0; j < rightArrayLength - 1; j++){
+           rightTempArray[j] = numbers[middle + 1 + j];
+       }
+       rightTempArray[rightArrayLength - 1] = Integer.MAX_VALUE;
+
+       int leftIndex = 0;
+       int rightIndex = 0;
+       int tempIndex = start;
+       while (tempIndex <= end){
+           if(leftTempArray[leftIndex] <= rightTempArray[rightIndex]){
+               numbers[tempIndex++] = leftTempArray[leftIndex++];
+           }else {
+               numbers[tempIndex++] = rightTempArray[rightIndex++];
+           }
+       }
     }
 }
 
