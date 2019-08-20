@@ -8,10 +8,33 @@ public class QuickSort {
      */
 
     public int[] quickSort(int[] numbers) {
-        return new int[] {1};
+       if(numbers.length <= 1) return numbers;
+       quickSortInternally(numbers, 0, numbers.length -1);
+       return numbers;
     }
 
-    public int partition(int[] numbers){
-        return numbers[0];
+    private void quickSortInternally(int[] numbers, int start, int end) {
+       if(start >= end) return;
+       int q = partition(numbers, start, end);
+       quickSortInternally(numbers, start, q -1);
+       quickSortInternally(numbers, q + 1, end);
+    }
+
+    public int partition(int[] numbers,int start, int end){
+       int pivot = numbers[end];
+       int pivotIndex = start;
+       for(int i = start; i < end; i++){
+           if(numbers[i] < pivot){
+               int temp = numbers[i];
+               numbers[i] = numbers[pivotIndex];
+               numbers[pivotIndex++] = temp;
+           }
+       }
+       int temp = numbers[pivotIndex];
+       numbers[pivotIndex] = numbers[end];
+       numbers[end] = temp;
+
+       System.out.println(pivotIndex);
+       return pivotIndex;
     }
 }
