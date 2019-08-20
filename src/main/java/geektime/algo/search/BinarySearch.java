@@ -63,4 +63,22 @@ public class BinarySearch {
         }
         return -1;
     }
+
+    public int FindLastIndex(int[] numbers, int value) {
+        int low = 0;
+        int high = numbers.length - 1;
+        while(low <= high){
+            int middle = low + (high - low)/2;
+            if(numbers[middle] < value){
+                low = middle + 1;
+            } else if(numbers[middle] > value) {
+                high = middle - 1;
+            }else {
+                if(middle == numbers.length - 1 || numbers[middle + 1] != value)
+                    return middle;
+                low = middle + 1;
+            }
+        }
+        return -1;
+    }
 }

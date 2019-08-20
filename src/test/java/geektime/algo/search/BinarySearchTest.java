@@ -58,4 +58,13 @@ class BinarySearchTest {
 
         assertEquals(0, index);
     }
+
+    //数组中有重复值，取最后一个匹配的值
+    @Test
+    void searchLastIndexThatValueEqualGivenValue(){
+        int[] numbers = new int[] {1, 3, 4, 5, 6, 8, 8, 8, 11, 18};
+        int index = binarySearch.FindLastIndex(numbers, 8);
+
+        assertEquals(7, index);
+    }
 }
