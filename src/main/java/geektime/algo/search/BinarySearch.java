@@ -1,5 +1,6 @@
 package geektime.algo.search;
 
+import javax.swing.*;
 import javax.swing.plaf.MenuBarUI;
 
 /*
@@ -77,6 +78,45 @@ public class BinarySearch {
                 if(middle == numbers.length - 1 || numbers[middle + 1] != value)
                     return middle;
                 low = middle + 1;
+            }
+        }
+        return -1;
+    }
+
+    public int FindFirstIndexThatMoreOrEqualValue(int[] numbers, int value) {
+
+        int low = 0;
+        int high = numbers.length - 1;
+        while(low <= high){
+            int middle = low + (high - low)/2;
+            if(numbers[middle] >= value) {
+                if(middle == 0 || numbers[middle - 1] < value)
+                    return middle;
+                else {
+                    high = middle -1;
+                }
+            }
+            else {
+                low = middle + 1;
+            }
+        }
+        return -1;
+    }
+
+    public int FindLastIndexThatLessOrEqualValue(int[] numbers, int value) {
+        int low = 0;
+        int high = numbers.length - 1;
+        while(low <= high){
+            int middle = low + (high - low)/2;
+            if(numbers[middle] <= value) {
+                if(middle == numbers.length - 1 || numbers[middle + 1] > value)
+                    return middle;
+                else {
+                    low = middle + 1;
+                }
+            }
+            else {
+                high = middle - 1;
             }
         }
         return -1;

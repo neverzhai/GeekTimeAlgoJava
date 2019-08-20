@@ -67,4 +67,23 @@ class BinarySearchTest {
 
         assertEquals(7, index);
     }
+
+    // 找出第一个大于等于给定值的元素
+    @Test
+    void searchFirstIndexThatMoreOrEqualGivenValue(){
+        int[] numbers = new int[] {1, 3, 4, 5, 6, 8, 8, 8, 11, 18};
+        int index = binarySearch.FindFirstIndexThatMoreOrEqualValue(numbers, 4);
+
+        assertEquals(2, index);
+    }
+
+
+    // 找出最后一个小于等于给定值的元素
+    @Test
+    void searchLastIndexThatLessOrEqualGivenValue(){
+        int[] numbers = new int[] {1, 3, 4, 5, 6, 8, 8, 8, 11, 18};
+        int index = binarySearch.FindLastIndexThatLessOrEqualValue(numbers, 7);
+
+        assertEquals(4, index);
+    }
 }
