@@ -33,7 +33,6 @@ class BinarySearchTest {
     }
 
 
-
     @Test
     void recursionSearch(){
         int[] numbers = new int[] {2, 9, 23, 39, 45};
@@ -41,5 +40,22 @@ class BinarySearchTest {
         int index = binarySearch.RecursionSearch(numbers, 9);
 
         assertEquals(1, index);
+    }
+
+    //数组中的有重复值，取第一个匹配的value值
+    @Test
+    void searchFirstIndexThatValueEqualGivenValue(){
+        int[] numbers = new int[] {1, 3, 4, 5, 6, 8, 8, 8, 11, 18};
+        int index = binarySearch.FindFirstIndex(numbers, 8);
+
+        assertEquals(5, index);
+    }
+
+    @Test
+    void searchFirstIndexThatValueEqualGivenValueWhenHitFirstNumber(){
+        int[] numbers = new int[] {1, 1, 1, 5, 6, 8, 8, 8, 11, 18};
+        int index = binarySearch.FindFirstIndex(numbers, 1);
+
+        assertEquals(0, index);
     }
 }

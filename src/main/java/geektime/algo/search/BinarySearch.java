@@ -1,5 +1,7 @@
 package geektime.algo.search;
 
+import javax.swing.plaf.MenuBarUI;
+
 /*
   二分思想
  */
@@ -41,5 +43,24 @@ public class BinarySearch {
         }else {
             return RecursionSearchInternal(numbers, low, middle - 1, value);
         }
+    }
+
+    // search the first one that the value equals the given value.
+    public int FindFirstIndex(int[] numbers, int value) {
+        int low = 0;
+        int high = numbers.length - 1;
+
+        while (low <= high){
+            int middle = low + (high - low)/2;
+            if(numbers[middle] < value){
+                low = middle +1;
+            }else if(numbers[middle] > value){
+                high = middle - 1;
+            } else {
+                if(middle == 0 || numbers[middle - 1] != value) return middle;
+                high = middle - 1;
+            }
+        }
+        return -1;
     }
 }
