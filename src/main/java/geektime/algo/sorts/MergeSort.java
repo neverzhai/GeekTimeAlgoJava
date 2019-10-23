@@ -7,6 +7,38 @@ public class MergeSort {
     重要的是哪个merge函数。
      */
 
+    public int[] mergeSort(int[] numbers1, int[] numbers2){
+        int totalLength = numbers1.length + numbers2.length;
+        int[] sortedNumbers = new int[totalLength];
+        int firstIndex = 0;
+        int secondIndex = 0;
+        int totalIndex = 0;
+        while (firstIndex < numbers1.length && secondIndex < numbers2.length){
+            if(numbers1[firstIndex] < numbers2[secondIndex]){
+               sortedNumbers[totalIndex++] = numbers1[firstIndex++];
+
+            } else if (numbers1[firstIndex] > numbers2[secondIndex]) {
+                sortedNumbers[totalIndex++] = numbers2[secondIndex++];
+            }else {
+                sortedNumbers[totalIndex++] = numbers1[firstIndex++];
+                secondIndex++;
+            }
+        }
+
+        while(firstIndex < numbers1.length){
+            sortedNumbers[totalIndex++] = numbers1[firstIndex++];
+        }
+        while (secondIndex < numbers2.length){
+            sortedNumbers[totalIndex++] = numbers2[secondIndex++];
+        }
+
+        int[] result = new int[totalIndex];
+        for (int index = 0; index < totalIndex; index++) {
+            result[index] = sortedNumbers[index];
+        }
+        return  result;
+    }
+
     // method 1
     public int[] mergeSort(int[] numbers) {
         if(numbers.length <= 1) {
