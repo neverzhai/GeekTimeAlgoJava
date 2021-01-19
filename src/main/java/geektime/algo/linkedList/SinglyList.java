@@ -3,12 +3,12 @@ package geektime.algo.linkedList;
 public class SinglyList {
 
 
-    public Node findByValue(int value) {
+    public ListNode findByValue(int value) {
         return null;
     }
 
 
-    public Node findByIndex(int index){
+    public ListNode findByIndex(int index){
 
         return null;
     }
@@ -23,23 +23,23 @@ public class SinglyList {
     }
 
 
-    public void  insertAfter(Node node, int value){
+    public void  insertAfter(ListNode node, int value){
 
     }
 
 
-    public void insertAfter(Node p, Node newNode) {
+    public void insertAfter(ListNode p, ListNode newNode) {
 
     }
 
-    public void insertBefore(Node p, int value) {
+    public void insertBefore(ListNode p, int value) {
     }
 
-    public void insertBefore(Node p, Node newNode) {
+    public void insertBefore(ListNode p, ListNode newNode) {
 
     }
 
-    public void deleteByNode(Node node){
+    public void deleteByNode(ListNode node){
 
     }
 
@@ -51,13 +51,13 @@ public class SinglyList {
     }
 
     //带结点的链表翻转
-    public Node inverseLinkList_head(Node p) {
+    public ListNode inverseLinkList_head(ListNode p) {
 
         return null;
     }
 
     //无头结点的链表翻转
-    public Node inverseLinkList(Node p){
+    public ListNode inverseLinkList(ListNode p){
         return null;
     }
 

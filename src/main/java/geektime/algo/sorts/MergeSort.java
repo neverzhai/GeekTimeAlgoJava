@@ -81,16 +81,12 @@ public class MergeSort {
 //            temp[tempIndex++] = nums[a++];
 //        }
 //
-        if(leftStartIndex <= middle){
-            while (leftStartIndex <= middle){
-                temp[tempIndex++] = nums[leftStartIndex++];
-            }
+        while (leftStartIndex <= middle){
+            temp[tempIndex++] = nums[leftStartIndex++];
         }
 
-        if(rightStartIndex <= end){
-            while (rightStartIndex <= end){
-                temp[tempIndex++] = nums[rightStartIndex++];
-            }
+        while (rightStartIndex <= end){
+            temp[tempIndex++] = nums[rightStartIndex++];
         }
 
         for(int i = 0; i <= end - start; i++){

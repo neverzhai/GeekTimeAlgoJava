@@ -1,7 +1,6 @@
 package geektime.algo.linkedList;
 
 import java.util.HashSet;
-import java.util.List;
 
 /**
  * 1) 单链表反转
@@ -141,7 +140,6 @@ public class LinkedListAlgo {
         return par1;
     }
 
-
     //两个有序的链表合并
     public ListNode mergeTwoLists(ListNode l1 , ListNode l2) {
         if(l1 == null) {
@@ -212,6 +210,5 @@ public class LinkedListAlgo {
         return pA;
 
     }
-
 
 }
