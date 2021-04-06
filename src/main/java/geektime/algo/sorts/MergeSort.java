@@ -76,10 +76,8 @@ public class MergeSort {
             }
         }
 
-        if(rightStartIndex <= end){
-            while (rightStartIndex <= end){
-                temp[tempIndex++] = nums[rightStartIndex++];
-            }
+        while (rightStartIndex <= end){
+            temp[tempIndex++] = nums[rightStartIndex++];
         }
 
         for(int i = 0; i <= end - start; i++){
