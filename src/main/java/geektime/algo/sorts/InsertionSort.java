@@ -7,7 +7,7 @@ public class InsertionSort {
     在插入个时候会出现数据搬移
      */
     public int[] insertionSort(int[] numbers){
-        if(numbers.length <= 1) return numbers;
+        if (numbers.length <= 1) return numbers;
         for (int i = 1; i < numbers.length; i++) { // 取未排序区的一个元素
             int value = numbers[i];
             int j = i -1;

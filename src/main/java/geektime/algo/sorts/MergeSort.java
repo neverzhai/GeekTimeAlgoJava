@@ -70,17 +70,6 @@ public class MergeSort {
             }
         }
 
-//        int a = leftStartIndex;
-//        int b = middle;
-//        if(rightStartIndex <= end){
-//            a = rightStartIndex;
-//            b = end;
-//        }
-
-//        while (a <= b){
-//            temp[tempIndex++] = nums[a++];
-//        }
-//
         if(leftStartIndex <= middle){
             while (leftStartIndex <= middle){
                 temp[tempIndex++] = nums[leftStartIndex++];
