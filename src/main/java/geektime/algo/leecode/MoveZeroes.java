@@ -37,4 +37,16 @@ public class MoveZeroes {
         nums[left] = nums[right];
         nums[right] = temp;
     }
+
+
+    public static void moveZeroes1(int[] nums) {
+        int n = nums.length, left = 0;
+
+        for(int right = 0; right < n; right++) {
+            if (nums[right] != 0 && left != right) {
+                swap(nums, left, right);
+                left++;
+            }
+        }
+    }
 }
