@@ -34,7 +34,6 @@ public class Subsets {
 
 
     // 子集 2: 给你一个整数数组 nums ，其中可能包含重复元素，请你返回该数组所有可能的子集（幂集）。
-
     List<Integer> tt = new ArrayList<Integer>();
     List<List<Integer>> res = new ArrayList<List<Integer>>();
 
