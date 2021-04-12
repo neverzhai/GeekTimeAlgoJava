@@ -14,8 +14,8 @@ public class Permute {
     List<Integer> tt = new ArrayList<Integer>();
     List<List<Integer>> res = new ArrayList<List<Integer>>();
 
-    public List<List<Integer>> permute(int[] nums) {
-
-    }
+//    public List<List<Integer>> permute(int[] nums) {
+//
+//    }
 
 }

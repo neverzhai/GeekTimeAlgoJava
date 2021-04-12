@@ -2,7 +2,6 @@ package geektime.algo.leecode;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author: zhaixiaoshuang
@@ -38,8 +37,6 @@ public class LRUCache {
         tail = new DLinkNode();
         head.next = tail;
         tail.pre = head;
-
-        new ReentrantLock();
     }
 
     public int get(int key) {

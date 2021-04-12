@@ -1,9 +1,8 @@
 package geektime.algo.leecode;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import apple.laf.JRSUIUtils;
+
+import java.util.*;
 
 /**
  * @author: zhaixiaoshuang
@@ -139,5 +138,95 @@ public class BinaryTreeTraversal {
             }
             return res;
         }
+
+        // 二叉树的层序遍历
+        public List<List<Integer>> levelOrder1(TreeNode root) {
+            List<List<Integer>> res = new ArrayList<>();
+
+            Queue<TreeNode> queue = new ArrayDeque<>();
+            if (root != null) {
+                queue.add(root);
+            }
+            while (!queue.isEmpty()) {
+                int n = queue.size();
+                List<Integer> level = new ArrayList<>();
+                for (int i = 0; i < n; i++) {
+                    TreeNode node = queue.poll();
+                    level.add(node.val);
+                    if (node.left != null) {
+                        queue.add(node.left);
+                    }
+                    if (node.right != null) {
+                        queue.add(node.right);
+                    }
+                }
+                res.add(level);
+            }
+
+            return res;
+        }
+
+        // 二叉树层序遍历
+
+
     }
+
+    public static ArrayList<ArrayList<Integer>> levelOrder(TreeNode root) {
+        ArrayList<ArrayList<Integer>> results = new ArrayList<>();
+
+        ArrayDeque<TreeNode> queue = new ArrayDeque<>();
+        if (root != null) {
+            queue.add(root);
+        }
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            ArrayList<Integer> list = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.pop();
+                list.add(node.val);
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+            results.add(list);
+        }
+        return results;
+    }
+
+    // 二叉树的蛇形遍历
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>> results = new ArrayList<>();
+
+        boolean isOrderLeft = true;
+        ArrayDeque<TreeNode> queue = new ArrayDeque<>();
+        if (root != null) {
+            queue.add(root);
+        }
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            LinkedList<Integer> list = new LinkedList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.pop();
+                if (isOrderLeft) {
+                    list.offerLast(node.val);
+                } else {
+                    list.offerFirst(node.val);
+                }
+
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+            isOrderLeft = !isOrderLeft;
+            results.add(list);
+        }
+        return results;
+    }
+
 }
