@@ -47,12 +47,7 @@ public class KthLargest {
 
     public KthLargest(int k, int[] nums) {
         this.k = k;
-        pq = new PriorityQueue<Integer>(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return 0;
-            }
-        });
+        pq = new PriorityQueue<Integer>();
         for (int x : nums) {
             add(x);
         }
