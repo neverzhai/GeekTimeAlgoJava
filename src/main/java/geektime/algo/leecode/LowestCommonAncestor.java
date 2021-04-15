@@ -34,7 +34,52 @@ public class LowestCommonAncestor {
 
     // 二叉搜索树的最近公共祖先 -- 利用搜索树的特点
     public TreeNode lowestCommonAncestor1(TreeNode root, TreeNode p, TreeNode q) {
+        if(p.val > q.val) { // 保证 p.val < q.val
+            TreeNode tmp = p;
+            p = q;
+            q = tmp;
+        }
+        if(root.val < p.val) {
+            return lowestCommonAncestor(root.right, p, q);
+        }
 
-          return root;
+        if(root.val > q.val) {
+            return lowestCommonAncestor(root.left, p, q);
+        }
+        return root;
+
+    }
+
+    // 迭代
+    public TreeNode lowestCommonAncestor3(TreeNode root, TreeNode p, TreeNode q) {
+        if(p.val > q.val) { // 保证 p.val < q.val
+            TreeNode tmp = p;
+            p = q;
+            q = tmp;
+        }
+        while (root != null) {
+            if (root.val < p.val) {
+                root = root.right;
+            } else if (root.val > q.val) {
+                root = root.left;
+            } else {
+                break;
+            }
+        }
+
+        return root;
+    }
+
+    // 二叉搜索树的最近公共祖先 -- 利用搜索树的特点 -- 递归
+    public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
+
+        if(root.val < p.val && root.val < q.val) {
+            return lowestCommonAncestor(root.right, p, q);
+        }
+
+        if(root.val > p.val && root.val > q.val) {
+            return lowestCommonAncestor(root.left, p, q);
+        }
+        return root;
     }
 }

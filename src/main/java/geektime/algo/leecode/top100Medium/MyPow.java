@@ -7,9 +7,14 @@ package geektime.algo.leecode.top100Medium;
  */
 public class MyPow {
 
-    // method1-- 暴力
+    // method1 -- 分治 + 递归
+    public double myPow(double x, int n) {
+        return x;
+    }
 
 
-
-    // method2-- 分治
+    // method2 -- 分治 + 迭代
+    public double myPow1(double x, int n) {
+        return x;
+    }
 }
