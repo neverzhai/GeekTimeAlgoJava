@@ -66,7 +66,6 @@ public class LowestCommonAncestor {
                 break;
             }
         }
-
         return root;
     }
 

@@ -10,32 +10,32 @@ import java.util.List;
  * @description: 15. 三数之和
  */
 public class ThreeSum {
-    public List<List<Integer>> threeSum(int[] nums) {
+    public List<List<Integer>> threeSum(int[] num) {
         List<List<Integer>> result = new ArrayList<>();
-        if (nums == null || nums.length <= 2) {
+        if (num == null || num.length <= 2) {
             return result;
         }
-        Arrays.sort(nums);
+        Arrays.sort(num);
 
-        for (int i = 0; i < nums.length - 2; i++) {
-            if (nums[0] > 0) {
+        for (int i = 0; i < num.length - 2; i++) {
+            if (num[0] > 0) {
                 break;
             }
-            if (i > 0 && nums[i] == nums[i-1]) continue;;
-            int left = i +1, right = nums.length -1;
-            int target = -nums[i];
+            if (i > 0 && num[i] == num[i-1]) continue;;
+            int left = i +1, right = num.length -1;
+            int target = -num[i];
             while (left < right) {
-                if (nums[left] + nums[right] == target) {
-                    result.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                if (num[left] + num[right] == target) {
+                    result.add(Arrays.asList(num[i], num[left], num[right]));
                     left++;
                     right--;
-                    while (left< right && nums[left] == nums[left-1]) {
+                    while (left< right && num[left] == num[left-1]) {
                         left++;
                     }
-                    while (left< right && nums[right] == nums[right+1]) {
+                    while (left< right && num[right] == num[right+1]) {
                         right--;
                     }
-                } else if (nums[left] + nums[right] < target) {
+                } else if (num[left] + num[right] < target) {
                     left++;
                 } else {
                     right--;

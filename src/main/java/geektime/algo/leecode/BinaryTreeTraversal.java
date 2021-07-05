@@ -142,7 +142,7 @@ public class BinaryTreeTraversal {
         public List<List<Integer>> levelOrder1(TreeNode root) {
             List<List<Integer>> res = new ArrayList<>();
 
-            Queue<TreeNode> queue = new ArrayDeque<>();
+            Queue<TreeNode> queue = new LinkedList<>();
             if (root != null) {
                 queue.add(root);
             }
@@ -173,7 +173,7 @@ public class BinaryTreeTraversal {
     public static ArrayList<ArrayList<Integer>> levelOrder(TreeNode root) {
         ArrayList<ArrayList<Integer>> results = new ArrayList<>();
 
-        ArrayDeque<TreeNode> queue = new ArrayDeque<>();
+        LinkedList<TreeNode> queue = new LinkedList<>();
         if (root != null) {
             queue.add(root);
         }
@@ -181,7 +181,7 @@ public class BinaryTreeTraversal {
             int size = queue.size();
             ArrayList<Integer> list = new ArrayList<>();
             for (int i = 0; i < size; i++) {
-                TreeNode node = queue.pop();
+                TreeNode node = queue.poll();
                 list.add(node.val);
                 if (node.left != null) {
                     queue.add(node.left);
