@@ -1,23 +1,13 @@
-package geektime.algo.leecode.hard;
-
+package geektime.algo.hangzhoumianshi.lists;
 
 import java.util.ArrayList;
 
 /**
  * @author: zhaixiaoshuang
- * @date: 2021-04-13 10:51
- * @description:  23. 合并K个升序链表
+ * @date: 2021-07-06 10:04
+ * @description:  合并K个有序链表
  */
 public class MergeKLists {
-
-    public class ListNode {
-        public int val;
-        public ListNode next = null;
-
-        public ListNode(int val) {
-            this.val = val;
-        }
-    }
 
     public ListNode mergeKLists(ArrayList<ListNode> lists) {
         return merge(lists, 0, lists.size() - 1);

@@ -8,6 +8,7 @@ package geektime.algo.mianshi;
 public class Singleton_04 {
 
     // 双重锁校验
+    // 关键是使用volatile修饰
     private static volatile Singleton_04 instance;
 
     public static Singleton_04 getInstance() {

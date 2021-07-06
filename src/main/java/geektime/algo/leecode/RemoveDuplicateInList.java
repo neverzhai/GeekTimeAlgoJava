@@ -3,7 +3,7 @@ package geektime.algo.leecode;
 /**
  * @author: zhaixiaoshuang
  * @date: 2021-04-15 21:02
- * @description: 删除链表中重复元素
+ * @description: 删除有序链表中重复元素
  */
 public class RemoveDuplicateInList {
     static class ListNode {
