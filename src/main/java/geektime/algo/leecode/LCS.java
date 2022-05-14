@@ -10,7 +10,7 @@ public class LCS {
         String str1 = "1AB2345CD";
         String str2 = "12345EF";
 
-        int subSeriel = longestSubSeriel(str1, str2);
+        int subSeriel = longestSubSerial(str1, str2);
         System.out.println(subSeriel);
 
     }
@@ -36,16 +36,16 @@ public class LCS {
                 }
             }
         }
-        System.out.println(maxLen);
-        System.out.println(bigestLength);
-//        printDP(dp, len1 + 1, len2 +1);
+//        System.out.println(maxLen);
+//        System.out.println(bigestLength);
+////        printDP(dp, len1 + 1, len2 +1);
         return str2.substring(maxLen - bigestLength +1, maxLen +1);
     }
 
 
 
     // 最长公共子序列
-    public static int longestSubSeriel(String str1, String str2) {
+    public static int longestSubSerial(String str1, String str2) {
         int len1 = str1.length();
         int len2 = str2.length();
 

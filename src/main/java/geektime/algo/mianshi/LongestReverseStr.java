@@ -30,7 +30,7 @@ public class LongestReverseStr {
         for (int start =0, end = 0; end < str.length(); end++) {
             char ch = str.charAt(end);
             if (map.containsKey(ch)) {
-                start = Math.max(start, map.get(ch) +1);
+                start = Math.max(start, map.get(ch) +1); // 要从重复的元素开始算起
             }
             if (maxLength < end - start + 1) {
                 maxLength = end - start +1;

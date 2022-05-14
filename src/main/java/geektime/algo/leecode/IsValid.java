@@ -34,10 +34,9 @@ public class IsValid {
         for (int index = 0; index < s.length(); index++) {
             char ch = s.charAt(index);
             if (pairs.containsKey(ch)) {
-                if (stack.isEmpty() || !stack.peek().equals(pairs.get(ch))) {
+                if (stack.isEmpty() || !stack.pop().equals(pairs.get(ch))) {
                     return false;
                 }
-                stack.pop();
             } else {
                 stack.push(ch);
             }

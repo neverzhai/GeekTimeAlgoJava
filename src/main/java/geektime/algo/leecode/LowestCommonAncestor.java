@@ -40,12 +40,15 @@ public class LowestCommonAncestor {
             q = tmp;
         }
         if(root.val < p.val) {
+            // 如果较小的那个元素值都比根节点大的话，说明p,q都在右边分支，则公共祖先在右边分支
             return lowestCommonAncestor(root.right, p, q);
         }
 
         if(root.val > q.val) {
+            // 如果较大的那个元素值都比根节点小的话，说明p,q都在左边分支，则公共祖先在左边分支
             return lowestCommonAncestor(root.left, p, q);
         }
+        // 否则，当前根节点就是最近公共祖先
         return root;
 
     }

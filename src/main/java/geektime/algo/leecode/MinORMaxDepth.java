@@ -16,7 +16,7 @@ public class MinORMaxDepth {
         TreeNode(int x) { val = x; }
     }
 
-    // 递归 -- 最小深度
+    // 递归 -- 最小深度： 最小深度是从根节点到最近叶子节点的最短路径上的节点数量
     public int minDepth(TreeNode root) {
         if (root == null) {
             return 0;

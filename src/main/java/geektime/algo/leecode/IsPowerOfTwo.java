@@ -8,7 +8,7 @@ package geektime.algo.leecode;
 public class IsPowerOfTwo {
 
     public static void main(String[] args) {
-        int n = -2147483647;
+        int n = 3;
         System.out.println(n & (n-1));
 //        System.out.println( n/2);
         boolean power = isPowerOfTwo(n);

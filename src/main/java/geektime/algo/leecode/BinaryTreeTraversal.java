@@ -114,9 +114,9 @@ public class BinaryTreeTraversal {
         // 后续非递归
         public List<Integer> postorderTraversal(TreeNode root) {
             List<Integer> res = new ArrayList<Integer>();
-            if (root == null) {
-                return res;
-            }
+//            if (root == null) {
+//                return res;
+//            }
 
             Deque<TreeNode> stack = new LinkedList<TreeNode>();
             TreeNode prev = null;
@@ -126,7 +126,7 @@ public class BinaryTreeTraversal {
                     root = root.left;
                 }
                 root = stack.pop();
-                if (root.right == null || root.right == prev) {
+                if (root.right == null || root.right == prev) { // 如果当前节点的右节点为空或者说右节点在前面刚遍历过， 则说明当前节点可以进行遍历， 存入结果集
                     res.add(root.val);
                     prev = root;
                     root = null;
@@ -200,7 +200,7 @@ public class BinaryTreeTraversal {
         List<List<Integer>> results = new ArrayList<>();
 
         boolean isOrderLeft = true;
-        ArrayDeque<TreeNode> queue = new ArrayDeque<>();
+        LinkedList<TreeNode> queue = new LinkedList<>();
         if (root != null) {
             queue.add(root);
         }
@@ -208,7 +208,7 @@ public class BinaryTreeTraversal {
             int size = queue.size();
             LinkedList<Integer> list = new LinkedList<>();
             for (int i = 0; i < size; i++) {
-                TreeNode node = queue.pop();
+                TreeNode node = queue.poll();
                 if (isOrderLeft) {
                     list.offerLast(node.val);
                 } else {

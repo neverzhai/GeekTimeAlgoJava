@@ -1,15 +1,26 @@
-package geektime.algo.leecode;
+package geektime.algo.hangzhoumianshi.math;
 
 /**
  * @author: zhaixiaoshuang
- * @date: 2021-03-22 19:42
- * @description: 求平方根 --- 二分法
+ * @date: 2021-07-06 11:43
+ * @description: 开平方根
  */
 public class SqrtMethod {
 
-    public static void main(String[] args) {
-        double sqrt = sqrt(2.0, 0.001);
-        System.out.println(sqrt);
+
+    // 1. 返回的结果是整数
+    public int mySqrt(int x) {
+        int l = 0, r = x, ans = -1;
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            if ((long) mid * mid <= x) {
+                ans = mid;
+                l = mid + 1;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return ans;
     }
 
     public static double sqrt(double value, double error) {
